@@ -63,10 +63,7 @@ jobs:
           name: Deploy App
           # Install, build, deploy in both apps
           command: |
-            echo "deploy backend API"
-            npm run api:deploy
-            echo "deploy frontend app"
-            npm run frontend:deploy
+            npm run deploy
 
 workflows:
   udagram:
