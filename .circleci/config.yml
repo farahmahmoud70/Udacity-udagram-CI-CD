@@ -44,7 +44,10 @@ jobs:
           command: |
             npm run frontend:build
       # Build the backend API
-
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -56,11 +59,6 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
-      - run:
-          name: EB CLI
-          command: |
-            eb create udacity-udagram-ci-cd-dev
-            eb status
       - run:
           name: Deploy App
           # Install, build, deploy in both apps
